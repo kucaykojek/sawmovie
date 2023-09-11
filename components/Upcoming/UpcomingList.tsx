@@ -48,7 +48,7 @@ export const UpcomingListProvider: React.FC<any> = (props) => {
   async function fetchData() {
     setLoading(true)
     try {
-      const res = (await fetchJson('/api/movie/upcoming')) as any
+      const res = (await fetchJson('/api/movie/list/upcoming')) as any
 
       if (res?.data) {
         setData(res.data)
@@ -129,6 +129,7 @@ export default function UpcomingList() {
                 <Image
                   src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/w220_and_h330_face${val?.poster_path}`}
                   fill
+                  sizes="330px"
                   alt={val.original_title}
                   className="upcoming-list__item-image"
                 />
@@ -138,7 +139,7 @@ export default function UpcomingList() {
                     {val.overview}
                   </div>
                   <p className="upcoming-list__item-price">
-                    {formatNumber(Math.floor(Math.random() * 10000), '$0,0')}
+                    {formatNumber(Math.floor(val.id / 100), '$0,0')}
                   </p>
                 </div>
               </Link>

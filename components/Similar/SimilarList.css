@@ -1,0 +1,66 @@
+.similar-list {
+  @apply relative w-full overflow-hidden p-4 bg-white rounded-xl;
+}
+
+.similar-list::before {
+  content: '';
+  @apply absolute z-10 top-0 left-0 w-20 h-full bg-gradient-to-r from-white;
+}
+
+.similar-list::after {
+  content: '';
+  @apply absolute z-10 top-0 right-0 w-20 h-full bg-gradient-to-l from-white;
+}
+
+.similar-list__title {
+  @apply
+    flex items-center justify-center
+    text-2xl font-bold py-2 text-primary tracking-wider;
+}
+
+.similar-list__item {
+  @apply relative p-2;
+}
+
+.similar-list__item-card {
+  @apply relative block bg-white shadow-sm rounded-xl overflow-hidden transition-all;
+}
+
+.similar-list__item-card:hover .similar-list__item-image {
+  @apply scale-105;
+}
+
+.similar-list__item-image {
+  @apply !relative !w-full !h-auto object-cover bg-neutral-400 transition-all rounded-xl;
+}
+
+.similar-list__item-content {
+  @apply
+    absolute bottom-0 left-0
+    w-[calc(100%-2rem)] min-h-0
+    flex flex-col items-center
+    mt-2 mx-4 p-4
+    bg-white bg-opacity-80
+    rounded-t-xl
+    transition-all;
+}
+
+.similar-list__item-card:hover .similar-list__item-content {
+  @apply min-h-max bg-white;
+}
+
+.similar-list__item-title {
+  @apply line-clamp-2 font-semibold;
+}
+
+.similar-list__item-price {
+  @apply text-primary font-bold mt-auto text-lg;
+}
+
+.similar-list__item-description {
+  @apply max-h-0 overflow-hidden line-clamp-4 my-2 text-sm;
+}
+
+.similar-list__item-card:hover .similar-list__item-description {
+  @apply max-h-max;
+}

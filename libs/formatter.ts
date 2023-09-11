@@ -2,6 +2,29 @@ import dayjs from 'dayjs'
 import 'dayjs/locale/id'
 import numeral from 'numeral'
 
+if (numeral.locales['id'] === undefined) {
+  numeral.register('locale', 'id', {
+    delimiters: {
+      thousands: '.',
+      decimal: ','
+    },
+    abbreviations: {
+      thousand: 'ribu',
+      million: 'juta',
+      billion: 'miliar',
+      trillion: 'triliun'
+    },
+    ordinal: () => '',
+    currency: {
+      symbol: 'Rp'
+    }
+  })
+}
+
+if (numeral.locale() !== 'id') {
+  numeral.locale('id')
+}
+
 export function formatNumber(
   number: any,
   format: string = '0,0',

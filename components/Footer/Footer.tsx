@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="footer mt-10 p-4 bg-primary-alt text-secondary text-center text-sm">
+    <footer className="footer p-4 bg-primary-alt text-secondary text-center text-sm">
       <div className="container">
         <span>&copy; 2023 - Asep Fajar Nugraha.</span> Hero Background oleh{' '}
         <a

@@ -1,0 +1,84 @@
+.movie-detail {
+  @apply relative bg-white pb-6 rounded-xl;
+}
+
+.movie-detail__backdrop {
+  @apply relative w-full h-96
+    flex items-center
+    bg-cover bg-no-repeat bg-neutral-200;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.movie-detail__body {
+  @apply
+    relative z-10 -mt-36 mx-6
+    w-[calc(100%-3rem)]
+    bg-white rounded-t-xl overflow-hidden
+    grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.movie-detail__image {
+  @apply relative;
+}
+
+.movie-detail__image img {
+  @apply !relative !w-full !h-auto;
+}
+
+.movie-detail__content {
+  @apply lg:col-span-2 py-6 flex flex-col space-y-4;
+}
+
+.movie-detail__content .movie-detail__title {
+  @apply text-3xl font-bold text-primary tracking-wide;
+}
+
+.movie-detail__content .movie-detail__meta {
+  @apply flex flex-wrap space-x-4;
+}
+
+.movie-detail__content .movie-detail__genre {
+  @apply flex flex-wrap space-x-2;
+}
+
+.movie-detail__content .movie-detail__genre li {
+  @apply bg-neutral-100 px-2 py-1 rounded-full text-sm;
+}
+
+.movie-detail__content .movie-detail__vote {
+  @apply flex items-center space-x-2;
+}
+
+.movie-detail__price {
+  @apply flex items-center space-x-2 text-xl;
+}
+
+.movie-detail__selection-quantity .quantity-selection {
+  @apply flex items-center space-x-2;
+}
+
+.movie-detail__selection-quantity .quantity-selection button {
+  @apply
+    outline-none border-none
+    flex items-center justify-center
+    bg-neutral-200 rounded-full w-10 h-10
+    disabled:opacity-60 disabled:pointer-events-none text-primary;
+}
+
+.movie-detail__selection-quantity .quantity-selection input {
+  @apply
+    outline-none transition-all rounded-full
+    px-4 h-10 w-36 text-center
+    border-2 focus:border-primary;
+}
+
+.movie-detail__selection-add-to-cart button {
+  @apply
+    border-none outline-none
+    inline-flex items-center justify-center
+    h-10 px-6 rounded-full
+    font-semibold
+    bg-primary text-white transition-all
+    hover:bg-secondary hover:text-primary;
+}
