@@ -7,7 +7,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   const { searchParams } = new URL(request.url)
-  const page = searchParams.get('page') ?? 1
+  const page = searchParams?.get('page') ?? 1
 
   try {
     const data = (await fetchJson(

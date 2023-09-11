@@ -4,8 +4,8 @@ import fetchJson from '@/libs/fetch-json'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
-  const keywords = searchParams.get('keywords')
-  const page = searchParams.get('page') ?? 1
+  const keywords = searchParams?.get('keywords')
+  const page = searchParams?.get('page') ?? 1
 
   if (!keywords) {
     return NextResponse.json(

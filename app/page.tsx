@@ -10,17 +10,25 @@ import UpcomingList, {
 export default function Home() {
   return (
     <>
-      <Hero />
+      <div data-testid="landing-hero">
+        <Hero />
+      </div>
 
       <PopularListProvider>
-        <PopularList />
+        <div data-testid="landing-popular-list">
+          <PopularList />
+        </div>
       </PopularListProvider>
 
       <UpcomingListProvider>
-        <UpcomingList />
+        <div data-testid="landing-upcoming-list">
+          <UpcomingList />
+        </div>
       </UpcomingListProvider>
 
-      <Campaign />
+      <div data-testid="landing-campaign">
+        <Campaign />
+      </div>
     </>
   )
 }

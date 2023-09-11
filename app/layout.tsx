@@ -33,9 +33,13 @@ export default function RootLayout({
       >
         <CartProvider>
           <SearchProvider>
-            <Header />
+            <div data-testid="layout-header">
+              <Header />
+            </div>
             <main>{children}</main>
-            <Footer />
+            <div data-testid="layout-footer">
+              <Footer />
+            </div>
             <SearchInput />
           </SearchProvider>
         </CartProvider>

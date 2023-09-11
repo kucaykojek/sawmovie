@@ -16,7 +16,7 @@ export default function SearchInput() {
     event.preventDefault()
 
     const current = new URLSearchParams(
-      searchParams ? Array.from(searchParams.entries()) : ''
+      searchParams ? Array.from(searchParams?.entries()) : ''
     )
 
     current.set('keywords', keywords)

@@ -11,10 +11,10 @@ export default function Cart() {
         Cart
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-        <div className="xl:col-span-2">
+        <div className="xl:col-span-2" data-testid="cart-list">
           <CartList />
         </div>
-        <div>
+        <div data-testid="cart-summary">
           <CartSummary />
         </div>
       </div>

@@ -24,7 +24,7 @@ export const SearchContext = createContext<TSearchContext | undefined>(
 
 export const SearchProvider: React.FC<any> = (props) => {
   const searchParams = useSearchParams()
-  const queryKeywords = searchParams.get('keywords')
+  const queryKeywords = searchParams?.get('keywords')
 
   const [loading, setLoading] = useState<boolean>(true)
   const [toggle, setToggle] = useState<boolean>(false)
