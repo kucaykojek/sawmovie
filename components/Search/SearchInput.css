@@ -1,0 +1,25 @@
+.search-input {
+  @apply
+    fixed z-50 top-0 left-0
+    w-screen h-screen backdrop-blur-sm bg-black bg-opacity-70
+    flex flex-col items-center justify-center;
+}
+
+.search-input__form {
+  @apply relative flex items-center;
+}
+
+.search-input__form input {
+  @apply
+    outline-none border-none bg-white shadow-sm
+    px-4 pr-12 h-12 w-80 rounded-full;
+}
+
+.search-input__form button {
+  @apply
+    absolute top-1/2 right-4 -translate-y-1/2 text-neutral-400;
+}
+
+.search-input__close {
+  @apply block text-white mt-6 cursor-pointer rounded-full border p-2 border-white;
+}

@@ -79,7 +79,7 @@ export default function UpcomingList() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 7,
+    slidesToShow: 6,
     slidesToScroll: 3,
     initialSlide: 0,
     autoplay: true,
@@ -87,19 +87,19 @@ export default function UpcomingList() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 6
+          slidesToShow: 4
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 4
+          slidesToShow: 3
         }
       },
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 3
+          slidesToShow: 2
         }
       }
     ]
@@ -118,34 +118,39 @@ export default function UpcomingList() {
       )}
       {!loading && (
         <Slider {...settings}>
-          {data.map((val: any, index: number) => (
-            <div key={`upcoming-item-${index}`} className="upcoming-list__item">
-              <Link
-                href={`/movie/${val.id}`}
-                className="upcoming-list__item-card"
+          {data
+            .filter((val: any) => !!val.poster_path)
+            .map((val: any, index: number) => (
+              <div
+                key={`upcoming-item-${index}`}
+                className="upcoming-list__item"
               >
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/w220_and_h330_face${val?.poster_path}`}
-                  fill
-                  sizes="330px"
-                  alt={val.original_title}
-                  className="upcoming-list__item-image"
-                />
-                <div className="upcoming-list__item-content">
-                  <h1 className="upcoming-list__item-title">{val.title}</h1>
-                  <div className="upcoming-list__item-description">
-                    {val.overview}
+                <Link
+                  href={`/movie/${val.id}`}
+                  className="upcoming-list__item-card"
+                >
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/w220_and_h330_face${val?.poster_path}`}
+                    fill
+                    sizes="330px"
+                    alt={val.original_title}
+                    className="upcoming-list__item-image"
+                  />
+                  <div className="upcoming-list__item-content">
+                    <h1 className="upcoming-list__item-title">{val.title}</h1>
+                    <div className="upcoming-list__item-description">
+                      {val.overview}
+                    </div>
+                    <p className="upcoming-list__item-price">
+                      {formatNumber(
+                        val.id > 10000 ? Math.floor(val.id / 10) : val.id,
+                        '$0,0'
+                      )}
+                    </p>
                   </div>
-                  <p className="upcoming-list__item-price">
-                    {formatNumber(
-                      val.id > 100 ? Math.floor(val.id / 10) : val.id,
-                      '$0,0'
-                    )}
-                  </p>
-                </div>
-              </Link>
-            </div>
-          ))}
+                </Link>
+              </div>
+            ))}
         </Slider>
       )}
     </div>

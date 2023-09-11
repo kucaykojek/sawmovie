@@ -19,7 +19,7 @@ export async function GET(request: Request) {
 
   try {
     const data = (await fetchJson(
-      `${process.env.API_URL}/search/keyword?query=${keywords}&page=${page}`,
+      `${process.env.API_URL}/search/movie?query=${keywords}&page=${page}`,
       {
         method: 'GET',
         headers: {
@@ -36,6 +36,7 @@ export async function GET(request: Request) {
       { status: 200 }
     )
   } catch (error) {
+    console.error(error)
     return NextResponse.json(
       {
         status: 404,

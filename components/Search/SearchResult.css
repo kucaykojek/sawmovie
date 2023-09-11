@@ -1,0 +1,18 @@
+.search-result__list {
+  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 lg:gap-6;
+}
+
+.search-result__list li a {
+  @apply
+    relative block cursor-pointer transition-all
+    bg-white hover:bg-secondary
+    rounded-xl overflow-hidden;
+}
+
+.search-result__list li img {
+  @apply !relative !w-full !h-auto min-h-[14rem] bg-neutral-200;
+}
+
+.search-result__item-content {
+  @apply p-4;
+}

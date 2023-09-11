@@ -31,7 +31,7 @@
 }
 
 .similar-list__item-image {
-  @apply !relative !w-full !h-auto object-cover bg-neutral-400 transition-all rounded-xl;
+  @apply !relative !w-full !h-auto min-h-[16rem] object-cover bg-neutral-400 transition-all rounded-xl;
 }
 
 .similar-list__item-content {

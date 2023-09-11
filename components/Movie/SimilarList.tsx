@@ -117,34 +117,36 @@ export default function SimilarList() {
       )}
       {!loading && (
         <Slider {...settings}>
-          {data.map((val: any, index: number) => (
-            <div key={`similar-item-${index}`} className="similar-list__item">
-              <Link
-                href={`/movie/${val.id}`}
-                className="similar-list__item-card"
-              >
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/w220_and_h330_face${val?.poster_path}`}
-                  fill
-                  sizes="330px"
-                  alt={val.original_title}
-                  className="similar-list__item-image"
-                />
-                <div className="similar-list__item-content">
-                  <h1 className="similar-list__item-title">{val.title}</h1>
-                  <div className="similar-list__item-description">
-                    {val.overview}
+          {data
+            .filter((val: any) => !!val.poster_path)
+            .map((val: any, index: number) => (
+              <div key={`similar-item-${index}`} className="similar-list__item">
+                <Link
+                  href={`/movie/${val.id}`}
+                  className="similar-list__item-card"
+                >
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/w220_and_h330_face${val?.poster_path}`}
+                    fill
+                    sizes="330px"
+                    alt={val.original_title}
+                    className="similar-list__item-image"
+                  />
+                  <div className="similar-list__item-content">
+                    <h1 className="similar-list__item-title">{val.title}</h1>
+                    <div className="similar-list__item-description">
+                      {val.overview}
+                    </div>
+                    <p className="similar-list__item-price">
+                      {formatNumber(
+                        val.id > 10000 ? Math.floor(val.id / 10) : val.id,
+                        '$0,0'
+                      )}
+                    </p>
                   </div>
-                  <p className="similar-list__item-price">
-                    {formatNumber(
-                      val.id > 100 ? Math.floor(val.id / 10) : val.id,
-                      '$0,0'
-                    )}
-                  </p>
-                </div>
-              </Link>
-            </div>
-          ))}
+                </Link>
+              </div>
+            ))}
         </Slider>
       )}
     </div>

@@ -57,7 +57,7 @@ export default async function MovieDetailPage({ params }: any) {
 
       if (result?.data?.id) {
         const price =
-          result.data.id > 100
+          result.data.id > 10000
             ? Math.floor(result.data.id / 10)
             : result.data.id
 

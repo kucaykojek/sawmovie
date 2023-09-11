@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
+import SearchInput from '@/components/Search/SearchInput'
 import { CartProvider } from '@/hooks/cart'
+import { SearchProvider } from '@/hooks/search'
 import { fontSans } from '@/libs/fonts'
 import { cn } from '@/libs/utils'
 
@@ -30,9 +32,12 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <CartProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <SearchProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+            <SearchInput />
+          </SearchProvider>
         </CartProvider>
       </body>
     </html>

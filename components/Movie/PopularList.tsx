@@ -77,7 +77,7 @@ export default function PopularList() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 7,
+    slidesToShow: 6,
     slidesToScroll: 3,
     initialSlide: 0,
     autoplay: true,
@@ -85,19 +85,19 @@ export default function PopularList() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 6
+          slidesToShow: 4
         }
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 4
+          slidesToShow: 3
         }
       },
       {
         breakpoint: 640,
         settings: {
-          slidesToShow: 3
+          slidesToShow: 2
         }
       }
     ]
@@ -116,34 +116,36 @@ export default function PopularList() {
       )}
       {!loading && (
         <Slider {...settings}>
-          {data.map((val: any, index: number) => (
-            <div key={`popular-item-${index}`} className="popular-list__item">
-              <Link
-                href={`/movie/${val.id}`}
-                className="popular-list__item-card"
-              >
-                <Image
-                  src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/w220_and_h330_face${val?.poster_path}`}
-                  fill
-                  sizes="330px"
-                  alt={val.original_title}
-                  className="popular-list__item-image"
-                />
-                <div className="popular-list__item-content">
-                  <h1 className="popular-list__item-title">{val.title}</h1>
-                  <div className="popular-list__item-description">
-                    {val.overview}
+          {data
+            .filter((val: any) => !!val.poster_path)
+            .map((val: any, index: number) => (
+              <div key={`popular-item-${index}`} className="popular-list__item">
+                <Link
+                  href={`/movie/${val.id}`}
+                  className="popular-list__item-card"
+                >
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_IMAGE_URL}/w220_and_h330_face${val?.poster_path}`}
+                    fill
+                    sizes="330px"
+                    alt={val.original_title}
+                    className="popular-list__item-image"
+                  />
+                  <div className="popular-list__item-content">
+                    <h1 className="popular-list__item-title">{val.title}</h1>
+                    <div className="popular-list__item-description">
+                      {val.overview}
+                    </div>
+                    <p className="popular-list__item-price">
+                      {formatNumber(
+                        val.id > 10000 ? Math.floor(val.id / 10) : val.id,
+                        '$0,0'
+                      )}
+                    </p>
                   </div>
-                  <p className="popular-list__item-price">
-                    {formatNumber(
-                      val.id > 100 ? Math.floor(val.id / 10) : val.id,
-                      '$0,0'
-                    )}
-                  </p>
-                </div>
-              </Link>
-            </div>
-          ))}
+                </Link>
+              </div>
+            ))}
         </Slider>
       )}
     </div>

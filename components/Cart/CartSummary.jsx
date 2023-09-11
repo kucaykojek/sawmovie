@@ -26,7 +26,7 @@ export default function CartSummary() {
       <h2 className="text-lg font-semibold">Summary</h2>
       <ul className="cart-summary__breakdown my-4">
         <li>
-          <div className="cart-summary__breakdown-label">Total Item</div>
+          <div className="cart-summary__breakdown-label">Total Movie</div>
           <div className="cart-summary__breakdown-value">
             {loading ? (
               <Loader2Icon className="animate-spin w-4 h-4" />

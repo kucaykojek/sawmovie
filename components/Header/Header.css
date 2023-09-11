@@ -5,6 +5,7 @@
 .header > .container {
   @apply flex items-center space-x-4 mt-10 px-4 py-2
     bg-primary rounded-full shadow-sm transition-all
+    mx-4 w-[calc(100vw-2rem)] sm:mx-auto
     lg:w-[62rem] xl:w-[72rem] h-14;
 }
 
