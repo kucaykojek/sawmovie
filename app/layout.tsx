@@ -9,7 +9,9 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'SawMovie',
-  description: 'A Movie Catalog'
+  description: 'A Movie Catalog',
+  icons: '/favicon.ico',
+  manifest: '/site.webmanifest'
 }
 
 export default function RootLayout({
