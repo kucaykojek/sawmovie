@@ -1,0 +1,25 @@
+.campaign {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.campaign li {
+  @apply flex w-full p-4 space-x-6 justify-center items-center;
+}
+
+.campaign__icon {
+  @apply
+    flex items-center justify-center
+    w-20 h-20 shrink-0 text-secondary bg-primary rounded-full;
+}
+
+.campaign__icon svg {
+  @apply w-10 h-10;
+}
+
+.campaign__content h3 {
+  @apply text-2xl italic font-bold text-primary;
+}
+
+.campaign__content p {
+  @apply mt-4;
+}

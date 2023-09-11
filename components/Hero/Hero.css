@@ -1,0 +1,25 @@
+.landing-hero {
+  @apply relative w-full h-[30rem]
+    flex items-center
+    bg-cover bg-no-repeat;
+  background-image: url('/hero-background.jpg');
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.landing-hero::after {
+  @apply absolute z-0 top-0 left-0 w-full h-full backdrop-blur-sm bg-black opacity-25;
+  content: '';
+}
+
+.landing-hero > .container {
+  @apply relative z-10 space-y-6 p-16;
+}
+
+.landing-hero h1 {
+  @apply relative z-10 text-4xl md:text-5xl lg:text-6xl text-white font-medium;
+}
+
+.landing-hero p {
+  @apply relative z-10 text-lg text-white lg:w-[30rem] font-medium;
+}

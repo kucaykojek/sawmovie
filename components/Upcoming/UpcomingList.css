@@ -1,0 +1,66 @@
+.upcoming-list {
+  @apply relative w-screen overflow-hidden py-4 bg-primary-alt;
+}
+
+.upcoming-list::before {
+  content: '';
+  @apply absolute z-10 top-0 left-0 w-20 h-full bg-gradient-to-r from-white;
+}
+
+.upcoming-list::after {
+  content: '';
+  @apply absolute z-10 top-0 right-0 w-20 h-full bg-gradient-to-l from-white;
+}
+
+.upcoming-list__title {
+  @apply
+    flex items-center justify-center
+    text-3xl font-bold py-4 text-secondary tracking-wider;
+}
+
+.upcoming-list__item {
+  @apply relative p-4;
+}
+
+.upcoming-list__item-card {
+  @apply relative block bg-white shadow-sm rounded-xl overflow-hidden transition-all;
+}
+
+.upcoming-list__item-card:hover .upcoming-list__item-image {
+  @apply scale-105;
+}
+
+.upcoming-list__item-image {
+  @apply !relative !w-full !h-auto object-cover bg-neutral-400 transition-all rounded-xl;
+}
+
+.upcoming-list__item-content {
+  @apply
+    absolute bottom-0 left-0
+    w-[calc(100%-2rem)] min-h-0
+    flex flex-col items-center
+    mt-2 mx-4 p-4
+    bg-white bg-opacity-80
+    rounded-t-xl
+    transition-all;
+}
+
+.upcoming-list__item-card:hover .upcoming-list__item-content {
+  @apply min-h-max bg-white;
+}
+
+.upcoming-list__item-title {
+  @apply line-clamp-2 font-semibold;
+}
+
+.upcoming-list__item-price {
+  @apply text-primary font-bold mt-auto text-lg;
+}
+
+.upcoming-list__item-description {
+  @apply max-h-0 overflow-hidden line-clamp-4 my-2 text-sm;
+}
+
+.upcoming-list__item-card:hover .upcoming-list__item-description {
+  @apply max-h-max;
+}

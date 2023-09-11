@@ -2,26 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  * {
+    @apply box-border;
+  }
+  html {
+    @apply text-neutral-700 scroll-smooth;
+  }
+  body {
+    @apply bg-neutral-100;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.container {
+  @apply relative lg:w-[64rem] mx-auto box-border;
+}
+
+main::before {
+  @apply fixed z-20 top-0 left-0 w-screen bg-gradient-to-b from-black h-32 opacity-80;
+  content: '';
 }

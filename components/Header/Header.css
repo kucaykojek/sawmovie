@@ -1,0 +1,72 @@
+.header {
+  @apply fixed z-30 w-screen transition-all;
+}
+
+.header > .container {
+  @apply flex items-center space-x-4 mt-10 px-4 py-2
+    bg-primary rounded-full shadow-sm transition-all
+    lg:w-[62rem] xl:w-[72rem] h-14;
+}
+
+.header.is-stick {
+  @apply bg-primary shadow-sm;
+}
+
+.header.is-stick > .container {
+  @apply mt-0 shadow-none;
+}
+
+.header__logo {
+  @apply whitespace-nowrap h-8;
+}
+
+.header__logo img {
+  @apply w-auto h-full;
+}
+
+.header__toggle {
+  @apply flex items-center justify-center space-x-3
+    cursor-pointer !ml-auto
+    md:hidden;
+}
+
+.header__toggle a {
+  @apply relative text-white;
+}
+
+.header__nav {
+  @apply hidden absolute top-10 right-2 bg-primary px-4 py-2 rounded-b-xl
+    md:flex md:relative md:top-0 md:right-auto md:items-center md:bg-transparent md:rounded-none md:p-0;
+}
+
+.header__nav.active {
+  @apply block md:flex;
+}
+
+.header__nav a {
+  @apply block px-2 py-1
+    text-secondary hover:text-white transition-all
+    font-semibold;
+}
+
+.header__action {
+  @apply hidden
+    md:flex md:items-center md:!ml-auto space-x-4;
+}
+
+.header__action a {
+  @apply relative text-white cursor-pointer;
+}
+
+.header__toggle a.has-bubble::after,
+.header__action a.has-bubble::after {
+  content: '';
+  @apply absolute z-10 -top-1 -right-1 border-2 border-primary rounded-full w-3 h-3 bg-secondary;
+}
+
+.header__action a.button {
+  @apply outline-none border-none rounded-full
+    px-4 py-1
+    bg-secondary text-primary font-semibold transition-all
+    opacity-95 hover:opacity-100;
+}
