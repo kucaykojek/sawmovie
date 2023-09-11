@@ -30,7 +30,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     )) as any
 
     return {
-      title: result?.data?.title ?? 'SawMovie'
+      title: result?.data?.title ?? 'SawMovie',
+      description: result?.data?.overview ?? ''
     }
   } catch (error) {
     console.error(error)
