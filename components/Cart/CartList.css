@@ -1,0 +1,29 @@
+.cart-list {
+  @apply relative;
+}
+
+.cart-list li {
+  @apply
+    flex items-center
+    p-4 space-x-4;
+}
+
+.cart-list li:not(:last-child) {
+  @apply border-b border-b-neutral-100;
+}
+
+.cart-item__image {
+  @apply w-16 h-auto rounded-lg shrink-0;
+}
+
+.cart-item__content {
+  @apply grow;
+}
+
+.cart-item__price {
+  @apply shrink-0 text-right;
+}
+
+.cart-item__action {
+  @apply block shrink-0;
+}

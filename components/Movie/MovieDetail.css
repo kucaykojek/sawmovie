@@ -77,8 +77,9 @@
   @apply
     border-none outline-none
     inline-flex items-center justify-center
-    h-10 px-6 rounded-full
+    h-10 min-w-[15rem] px-6 rounded-full
     font-semibold
     bg-primary text-white transition-all
-    hover:bg-secondary hover:text-primary;
+    hover:bg-secondary hover:text-primary
+    disabled:bg-neutral-500 disabled:pointer-events-none disabled:text-neutral-300;
 }

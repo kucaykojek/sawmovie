@@ -5,12 +5,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 
+import { useCart } from '@/hooks/cart'
 import { useScroll } from '@/hooks/document'
 
 import './Header.css'
 
 export default function Header() {
   const { fromTop } = useScroll()
+  const { cart } = useCart()
   const [showMenu, setShowMenu] = useState<boolean>(false)
 
   const isStick = useMemo(() => {
@@ -25,9 +27,9 @@ export default function Header() {
         </Link>
 
         <div className="header__toggle">
-          <a className="has-bubble">
+          <Link href="/cart" className={`${cart.length > 0 && 'has-bubble'}`}>
             <ShoppingBasket />
-          </a>
+          </Link>
           <a>
             <User />
           </a>
@@ -38,13 +40,13 @@ export default function Header() {
 
         <ul className={`header__nav ${showMenu && 'active'}`}>
           <li>
-            <Link href="/">Popular</Link>
+            <a>Popular</a>
           </li>
           <li>
-            <Link href="/">Upcoming</Link>
+            <a>Upcoming</a>
           </li>
           <li>
-            <Link href="/">Top Rated</Link>
+            <a>Top Rated</a>
           </li>
         </ul>
 
@@ -52,9 +54,9 @@ export default function Header() {
           <a>
             <Search />
           </a>
-          <a className="has-bubble">
+          <Link href="/cart" className={`${cart.length > 0 && 'has-bubble'}`}>
             <ShoppingBasket />
-          </a>
+          </Link>
           <a className="button">Login / Register</a>
         </div>
       </div>

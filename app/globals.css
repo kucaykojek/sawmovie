@@ -19,7 +19,7 @@
 }
 
 main::before {
-  @apply fixed z-20 top-0 left-0 w-screen bg-gradient-to-b from-black h-32 opacity-80;
+  @apply fixed z-20 top-0 left-0 w-screen bg-gradient-to-b from-black h-28 opacity-80;
   content: '';
 }
 

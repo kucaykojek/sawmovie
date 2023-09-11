@@ -11,8 +11,6 @@ export async function GET(_: Request, { params }: { params: { id: string } }) {
       }
     })) as any
 
-    console.log(data)
-
     return NextResponse.json(
       {
         status: 200,

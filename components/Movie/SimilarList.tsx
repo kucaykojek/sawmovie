@@ -64,9 +64,7 @@ export const SimilarListProvider: React.FC<any> = (props) => {
     }
   }
 
-  return (
-    <SimilarListContext.Provider value={{ ...value, setLoading }} {...props} />
-  )
+  return <SimilarListContext.Provider value={{ ...value }} {...props} />
 }
 
 export const useSimilarList = (): TSimilarListContext => {
@@ -138,7 +136,10 @@ export default function SimilarList() {
                     {val.overview}
                   </div>
                   <p className="similar-list__item-price">
-                    {formatNumber(Math.floor(val.id / 100), '$0,0')}
+                    {formatNumber(
+                      val.id > 100 ? Math.floor(val.id / 10) : val.id,
+                      '$0,0'
+                    )}
                   </p>
                 </div>
               </Link>

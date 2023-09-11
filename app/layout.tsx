@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
+import { CartProvider } from '@/hooks/cart'
 import { fontSans } from '@/libs/fonts'
 import { cn } from '@/libs/utils'
 
@@ -28,9 +29,11 @@ export default function RootLayout({
         )}
         suppressHydrationWarning
       >
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   )

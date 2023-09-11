@@ -2,10 +2,10 @@ import Campaign from '@/components/Campaign/Campaign'
 import Hero from '@/components/Hero/Hero'
 import PopularList, {
   PopularListProvider
-} from '@/components/Popular/PopularList'
+} from '@/components/Movie/PopularList'
 import UpcomingList, {
   UpcomingListProvider
-} from '@/components/Upcoming/UpcomingList'
+} from '@/components/Movie/UpcomingList'
 
 export default function Home() {
   return (

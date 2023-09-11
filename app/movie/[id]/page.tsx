@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 
-import MovieDetail from '@/components/MovieDetail/MovieDetail'
+import MovieDetail from '@/components/Movie/MovieDetail'
 import SimilarList, {
   SimilarListProvider
-} from '@/components/Similar/SimilarList'
+} from '@/components/Movie/SimilarList'
 import { Movie } from '@/entities/movie'
 import fetchJson from '@/libs/fetch-json'
 
@@ -56,7 +56,11 @@ export default async function MovieDetailPage({ params }: any) {
       )) as any
 
       if (result?.data?.id) {
-        const price = Math.floor(result.data.id / 100)
+        const price =
+          result.data.id > 100
+            ? Math.floor(result.data.id / 10)
+            : result.data.id
+
         return {
           id: Number(result.data.id),
           title: result.data.title,
